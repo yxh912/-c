@@ -1,0 +1,115 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>请相信我，我不会让你失望</title>
+    <script src="./js/jquery-2.0.0.min.js"></script>
+
+    <style>
+        body {
+            background: radial-gradient(200% 100% at bottom center, #f7f7b6, #e96f92, #75517d, #1b2947);
+            background: radial-gradient(220% 105% at top center, #1b2947 10%, #75517d 40%, #e96f92 65%, #f7f7b6);
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(0);
+            }
+            100% {
+                transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(-360deg);
+            }
+        }
+        
+        .stars {
+            transform: perspective(500px);
+            transform-style: preserve-3d;
+            position: absolute;
+            bottom: 0;
+            perspective-origin: 50% 100%;
+            left: 50%;
+            animation: rotate 90s infinite linear;
+        }
+        
+        .star {
+            width: 2px;
+            height: 2px;
+            background: #F7F7B6;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: 0 0 -300px;
+            transform: translate3d(0, 0, -300px);
+            backface-visibility: hidden;
+        }
+        
+        .img-wrap {
+            height: 100vh;
+            width: 100%;
+            background: url(image/1000141.jpg) no-repeat;
+            background-size: 100%;
+            opacity: 0.5;
+        }
+    </style>
+    <p style="text-align:center">晨，你要相信，每一份编程我都是带着感情做的</p>
+    <p style="text-align:center">我可能就会为了一句话想上半天</p>
+    <p style="text-align:center">然后写完自己一看吧，就感觉又没有逻辑</p>
+    <p style="text-align:center">然后删删改改的，就觉得总差点什么</p>
+    <p style="text-align:center">说实话，我是迫不及待想跟你在一起</p>
+    <p style="text-align:center">不是说什么只是闹着玩</p>
+    <p style="text-align:center">而是我真的把你当做了生命的一部分</p>
+    <p style="text-align:center">以前你跟我说过你这种性格很讨男生喜欢</p>
+    <p style="text-align:center">但是也就一段时间吧（大概意思是这，有点忘了...）</p>
+    <p style="text-align:center">可是我可不这么觉得哦，我可是惦记你到现在呢嘻嘻</p>
+    <p style="text-align:center">啪！给我好好写不许皮！唔...</p>
+    <p style="text-align:center">怎么说呢，四月现在有两个遗憾</p>
+    <p style="text-align:center">一个呢，是刀剑神域推迟到七月了</p>
+    <p style="text-align:center">另一个最大的遗憾就是你还是没有同意...</p>
+    <p style="text-align:center">其实你不用这么快就回复的，我知道你肯定是要好好想一想的</p>
+    <p style="text-align:center">只是我比较急...</p>
+    <p style="text-align:center">我现在能做的就是能够打动你，我也希望可以打动你</p>
+    <p style="text-align:center">假如你真的跟我在一起了，你放心，我是不会抛下你一个人的</p>
+    <p style="text-align:center">这句绝对不是玩笑话，我是很认真的</p>
+    <p style="text-align:center">最后，请允许我用一句晚安来结尾</p>
+    <p style="text-align:center">晚安橙子。我，等你。</p>
+    <div style="display: none">
+    <audio autoplay="autoplay"><source src="m.mp3" type="audio/mpeg"></audio></div>
+
+</head>
+
+<body>
+
+    <div class="stars"></div>
+    <!--背景层，不要删除，不然没有作用-->
+    <div class="img-wrap">
+
+    </div>
+    <script>
+        $(document).ready(function() {
+            var stars = 800; /*星星的密集程度，数字越大越多*/
+            var $stars = $(".stars");
+            var r = 800; /*星星的看起来的距离,值越大越远,可自行调制到自己满意的样子*/
+            for (var i = 0; i < stars; i++) {
+                var $star = $("<div/>").addClass("star");
+                console.log($star)
+                $stars.append($star);
+            }
+            $(".star").each(function() {
+                var cur = $(this);
+                var s = 0.2 + (Math.random() * 1);
+                var curR = r + (Math.random() * 300);
+                cur.css({
+                    transformOrigin: "0 0 " + curR + "px",
+                    transform: " translate3d(0,0,-" + curR + "px) rotateY(" + (Math.random() * 360) + "deg) rotateX(" + (Math.random() * -50) + "deg) scale(" + s + "," + s + ")"
+
+                })
+            })
+        })
+    </script>
+
+
+</body>
+
+</html>
